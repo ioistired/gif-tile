@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="charset=utf-8">
 <title>.gif-tile</title>
 <script src="https://code.jquery.com/jquery.min.js"></script>
 <style type="text/css">
@@ -28,20 +28,10 @@ $(document).on('click', '*', function(evt) {
     TODO: Rewrite w/jQuery, cause I'm too lazy to learn it
 */
 function update(imgUrl, audioUrl) {
-  imgUrl = 'url('+imgUrl+')'
-  document.body.style.backgroundImage = imgUrl;
-  //document.getElementById("bgAudio").setAttribute('src', audioUrl)
-  // Create the <audio> element if it doesn't already exist
-  if ( !!document.getElementById("bgAudio") == false ){
-    var audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', audioUrl);
-    audioElement.setAttribute('preload', 'auto');
-    audioElement.setAttribute('autoplay', '');
-    audioElement.setAttribute('loop', '')
-  } else {
-    var audioElement = document.getElementById("bgAudio");
-    audioElement.setAttribute('src', audioUrl);
-  }
+  // Use fixed CSS variable
+  document.body.style.backgroundImage = 'url('+imgUrl+')';
+  var audioElement = document.getElementById("bgAudio");
+  audioElement.setAttribute('src', audioUrl);
 };
 // Get the URLs from the form
 var updateButton = document.getElementById("updateButton");
@@ -64,15 +54,26 @@ if (void 0 != audioUrl)
 		audio.setAttribute('autoplay', '');
 }
 </script>-->
-<button id='menu_button'>Options</button>
+<audio id="bgAudio" preload="auto" autoplay loop></audio>
+<button id='menu_button'>Options/About</button>
 <div id='menu'>
-<form id="urlForm">
 Enter a URL to an image:<br />
-<input id="imgUrlEl" type="url"></input><br />
+<input id="imgUrlEl" type="url" /><br />
 Enter a URL to an audio file your browser supports:<br />
-<input id="audioUrlEl" type="url"></input><br />
-</form>
-<button id="updateButton">Update</button>
+<input id="audioUrlEl" type="url" /><br />
+<button id="removeButton">Remove audio</button>
+<button id="updateButton">Update</button><br />
+<b>giftile</b> tiles a .gif (or other image) and loops an audio file.<br />
+Useful for .gifs that "dance to anything".<br />
+<a href="https://github.com/benjabean1/giftile">Fork me on GitHub</a>
 </div>
+<script>
+var removeButton = document.getElementById("removeButton");
+removeButton.addEventListener("click", function() {
+  var bgAudio = document.getElementById("bgAudio");
+  bgAudio.pause();
+  document.getElementById("bgAudio").removeAttribute("src");
+})
+</script>
 </body>
 </html>
