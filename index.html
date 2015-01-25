@@ -1,11 +1,59 @@
 <!doctype html>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>.gif-tile</title>
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+// Only load once the DOM is ready
+$( document ).ready(function() {
+/*  Show/hide menu
+    Credits to Utkanos on StackOverflow
+    http://stackoverflow.com/a/18562295
+
+    TODO: show/hide menu *button* too, on mousemove anywhere in the document
+*/
+var menu = $('#menu'), but = $('#menu_button');
+$(document).on('click', '*', function(evt) {
+    evt.stopPropagation();
+    if ($(this).is(but))
+        menu.toggle();
+    else if (!$(this).closest(menu).length)
+        menu.hide();
+});
+
+/*  Update the page with the given URLs
+    TODO: Rewrite w/jQuery, cause I'm too lazy to learn it
+*/
+function update(imgUrl, audioUrl) {
+  imgUrl = 'url('+imgUrl+')'
+  document.body.style.backgroundImage = imgUrl;
+  //document.getElementById("bgAudio").setAttribute('src', audioUrl)
+  // Create the <audio> element if it doesn't already exist
+  if ( !!document.getElementById("bgAudio") == false ){
+    var audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', audioUrl);
+    audioElement.setAttribute('preload', 'auto');
+    audioElement.setAttribute('autoplay', '');
+    audioElement.setAttribute('loop', '')
+  } else {
+    var audioElement = document.getElementById("bgAudio");
+    audioElement.setAttribute('src', audioUrl);
+  }
+};
+// Get the URLs from the form
+var updateButton = document.getElementById("updateButton");
+var imgUrl = document.getElementById("imgUrlEl").value;
+var audioUrl = document.getElementById("audioUrlEl").value;
+updateButton.addEventListener("click", function() { var imgUrl = document.getElementById("imgUrlEl").value;
+var audioUrl = document.getElementById("audioUrlEl").value; update(imgUrl, audioUrl); }, false);
+});
+</script>
 </head>
 <body>
-<audio id="bgAudio" autoplay></audio>
-<script>
+<!--<script>
 document.body.style.backgroundImage='url('+prompt('Enter a URL to an image:', 'http://')+')';
 audioUrl = prompt("Enter an (optional) URL to an audio file your browser supports:");
 if (void 0 != audioUrl)
@@ -15,6 +63,16 @@ if (void 0 != audioUrl)
 		audio.setAttribute('preload', 'auto');
 		audio.setAttribute('autoplay', '');
 }
-</script>
+</script>-->
+<button id='menu_button'>Options</button>
+<div id='menu'>
+<form id="urlForm">
+Enter a URL to an image:<br />
+<input id="imgUrlEl" type="url"></input><br />
+Enter a URL to an audio file your browser supports:<br />
+<input id="audioUrlEl" type="url"></input><br />
+</form>
+<button id="updateButton">Update</button>
+</div>
 </body>
 </html>
