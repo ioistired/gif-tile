@@ -1,7 +1,7 @@
 # giftile
 Tiles a .gif for "this .gif goes with anything" goodness.
 
-Optionally loops an audio file; press Cancel at the audio prompt to not use one.
+Optionally loops an audio file; just leave the second field blank.
 Originally hosted at [jsbin](http://jsbin.com/tikodi), but I decided this needed its own domain name.
 View it as a [GitHub Page](http://giftile.me)!
 
