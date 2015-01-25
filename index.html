@@ -5,6 +5,9 @@
 <title>.gif-tile</title>
 <script src="https://code.jquery.com/jquery.min.js"></script>
 <style type="text/css">
+span#menuBg {
+  background: #fff;
+}
 </style>
 <script type="text/javascript">
 // Only load once the DOM is ready
@@ -57,6 +60,7 @@ if (void 0 != audioUrl)
 <audio id="bgAudio" preload="auto" autoplay loop></audio>
 <button id='menu_button'>Options/About</button>
 <div id='menu'>
+<span id='menuBg'>
 Enter a URL to an image:<br />
 <input id="imgUrlEl" type="url" /><br />
 Enter a URL to an audio file your browser supports:<br />
@@ -66,6 +70,7 @@ Enter a URL to an audio file your browser supports:<br />
 <b>giftile</b> tiles a .gif (or other image) and loops an audio file.<br />
 Useful for .gifs that "dance to anything".<br />
 <a href="https://github.com/benjabean1/giftile">Fork me on GitHub</a>
+</span>
 </div>
 <script>
 var removeButton = document.getElementById("removeButton");
