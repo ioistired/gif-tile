@@ -23,8 +23,8 @@ $(document).on('click', '*', function(evt) {
     evt.stopPropagation();
     if ($(this).is(but))
         menu.toggle();
-    else if (!$(this).closest(menu).length)
-        menu.hide();
+    //else if (!$(this).closest(menu).length)
+     //   menu.hide();
 });
 
 /*  Update the page with the given URLs
@@ -43,6 +43,25 @@ var audioUrl = document.getElementById("audioUrlEl").value;
 updateButton.addEventListener("click", function() { var imgUrl = document.getElementById("imgUrlEl").value;
 var audioUrl = document.getElementById("audioUrlEl").value; update(imgUrl, audioUrl); }, false);
 });
+function hideButton(){
+	if(hide==false){
+		$('#menu_button').hide();
+		$('#menu').hide();
+	}
+}
+
+timeoutVar=setTimeout(hideButton,2000);
+$('#menu_button').mouseover(function(){
+	$('#menu_button').show();
+});
+$(document).mousemove(function(){
+	$('#menu_button').show();
+	if(timeoutVar != null){
+		clearTimeout(timeoutVar);
+	}
+	myVar=setTimeout(hideButton,2000);
+});
+
 </script>
 </head>
 <body>
