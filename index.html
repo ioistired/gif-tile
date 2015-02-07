@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="charset=utf-8">
+    <title>.gif-tile</title>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <style id="pageStyle" type="text/css">
+      span#menuBg {
+      background: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <audio id="bgAudio" preload="auto" autoplay loop></audio>
+    <button id='menu_button'>Options/About</button>
+    <div id='menu'>
+      <span id='menuBg'>
+      Enter a URL to an image:<br />
+      <input id="imgUrlEl" type="url" /><br />
+      Enter a URL to an audio file your browser supports:<br />
+      <input id="audioUrlEl" type="url" /><br />
+      <!--<button id="removeButton">Remove audio</button>-->
+      <button id="updateButton">Update</button><br />
+      <b>giftile</b> tiles a .gif (or other image) and loops an audio file.<br />
+      Useful for .gifs that "dance to anything".<br />
+      <a href="https://github.com/bmintz/giftile" target="_blank">Fork me on GitHub</a>
+      </span>
+    </div>
+<!--<script>
+      // Pause, remove audio on button click
+      $("#removeButton").click(function() {
+        document.getElementById("bgAudio").pause();
+        $("#bgAudio").removeAttr("src");
+      });
+    </script>-->
+    <!--Main functionality-->
+    <script src="giftile.js"></script>
+  </body>
+</html>
