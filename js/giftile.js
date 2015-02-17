@@ -4,20 +4,23 @@ $( document ).ready(function() {
       http://stackoverflow.com/a/18562295
 
       TODO: show/hide menu *button* too, on mousemove anywhere in the document
+      This isn't needed anymore, as we have Meny!
+      http://lab.hakim.se/meny/
   */
-  var menu = $('#menu'), but = $('#menu_button');
+  /*var menu = $('#menu'), but = $('#menu_button');
   $(document).on('click', '*', function(evt) {
       evt.stopPropagation();
       if ($(this).is(but))
           menu.toggle();
       else if (!$(this).closest(menu).length)
           menu.hide();
-  });
+  });*/
 
   //  Update the page with the given URLs
   function update(imgUrl, audioUrl) {
     // Use fixed CSS variable
     document.body.style.backgroundImage = 'url('+imgUrl+')';
+    //$('.contents').css('background-image', 'url('+imgUrl+')';
     var audioElement = $("#bgAudio");
     audioElement.attr('src', audioUrl);
   };
