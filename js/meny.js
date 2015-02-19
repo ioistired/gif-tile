@@ -18,7 +18,7 @@ var meny = Meny.create({
         threshold: 40,
 
         // Width(in px) of the thin line you see on screen when menu is in closed position.
-        overlap: 0,
+        overlap: -10,
 
         // The total time taken by menu animation.
         transitionDuration: '0s',
