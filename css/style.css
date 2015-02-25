@@ -1,3 +1,6 @@
 #menu {
-      background: #fff;
-      }
+    background: #fff;
+  }
+html, body {
+    height: 100%;
+}
