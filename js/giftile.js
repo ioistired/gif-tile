@@ -1,21 +1,15 @@
 $( document ).ready(function() {
-  /*  Show/hide menu
-      Credits to Utkanos on StackOverflow
-      http://stackoverflow.com/a/18562295
 
-      TODO: show/hide menu *button* too, on mousemove anywhere in the document
-      This isn't needed anymore, as we have Meny!
-      http://lab.hakim.se/meny/
-  */
-  /*var menu = $('#menu'), but = $('#menu_button');
-  $(document).on('click', '*', function(evt) {
-      evt.stopPropagation();
-      if ($(this).is(but))
-          menu.toggle();
-      else if (!$(this).closest(menu).length)
-          menu.hide();
-  });*/
-
+  /* BEGIN NON-PARSE CODE */
+  // Function that returns the URLs
+  function getUrls() {
+    var imgUrl = $("#imgUrlEl").val(),
+    audioUrl = $("#audioUrlEl").val();
+    URLs = {};
+    URLs.imgUrl = $("#imgUrlEl").val(),
+    URLs.audioUrl = $("#audioUrlEl").val();
+    return URLs;
+  }
   //  Update the page with the given URLs
   function update(imgUrl, audioUrl) {
     // Use fixed CSS variable
@@ -27,9 +21,24 @@ $( document ).ready(function() {
   //  Update the page with user-inputted URLs
   $("#updateButton").click(function() {
     // Get the URLs from the form
-    var imgUrl = $("#imgUrlEl").val(),
-    audioUrl = $("#audioUrlEl").val();
+    URLs = getUrls();
     // Actually update the page
-    update(imgUrl, audioUrl);
-  });
+    update(URLs.imgUrl, URLs.audioUrl);
+    });
+  /* END NON-PARSE CODE */
+  /* BEGIN PARSE CODE */
+  // Initialize Parse (hooray for API keys!)
+  Parse.initialize("A9sAQb11swZBuH5Inpf4hkGzK0ma6oAu1r715PJJ", "7GYYxwkdtjw45x7Mop8qMYQdJy4Z31CImCLZEhGH");
+  // New ShortUrls Class
+  var ShortURLs = Parse.Object.extend("ShortURLs");
+  var shortUrls = new ShortURLs();
+  // Create a permalink with the user-inputted URLs
+  $("#createPermalinkButton").click(function() {
+    URLs = getUrls();
+    alert(URLs.imgUrl);
+    shortUrls.save({"imgUrl": URLs.imgUrl, "audioUrl": URLs.audioUrl}).then(function(object) {
+  alert("Permalink saved successfully!");
 });
+});
+});
+  /* END PARSE CODE */

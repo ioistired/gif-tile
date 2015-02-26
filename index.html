@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="charset=utf-8">
     <title>.gif-tile</title>
-    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
@@ -13,7 +13,8 @@
           Enter a URL to an audio file your browser supports:<br />
           <input id="audioUrlEl" type="url" /><br />
           <!--<button id="removeButton">Remove audio</button>-->
-          <button id="updateButton">Update</button><br />
+          <button id="updateButton">Update</button>
+          <button id="createPermalinkButton">Create permalink</button><br /> 
           <p>
             <b>giftile</b> tiles a .gif (or other image) and loops an audio file.<br />
             Useful for .gifs that "dance to anything".<br />
@@ -31,6 +32,7 @@
     <!--Main functionality-->
     <script src="//cdnjs.cloudflare.com/ajax/libs/meny/1.4.0/meny.min.js"></script>
     <script src="js/meny.js"></script>
+    <script src="//www.parsecdn.com/js/parse-1.3.5.min.js"></script>
     <script src="js/giftile.js"></script>
   </body>
 </html>
