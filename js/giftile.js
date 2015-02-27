@@ -34,6 +34,7 @@ $(document).ready(function () {
     var shortUrls = new ShortURLs();
     var query = Parse.Query(ShortURLs);
     // Create a permalink with the user-inputted URLs
+    var hasPermalinkDisplayed = false;
     $("#createPermalinkButton").click(function () {
         URLs = getUrls();
         if ((URLs.imgUrl !== "") || (URLs.audioUrl !== "")) {
@@ -41,8 +42,11 @@ $(document).ready(function () {
                 "imgUrl": URLs.imgUrl,
                 "audioUrl": URLs.audioUrl
             }).then(function (object) {
-                $('#createPermalinkButton').after('<br />Your permalink is:<br /><input id="shortUrl" type="text" value="http://giftile.me/?id='+shortUrls.id+'"></input>');
-                $('#shortUrl').select();
+                if (hasPermalinkDisplayed == false) {
+                    $('#createPermalinkButton').after('<br />Your permalink is:<br /><input id="shortUrl" type="text" value="http://giftile.me/?id='+shortUrls.id+'"></input>');
+                    $('#shortUrl').select();
+                    hasPermalinkDisplayed = true;
+                };
             }, function (error) {
                 alert("Permalink save unsuccesful.\nPlease try again.");
             });
