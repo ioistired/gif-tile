@@ -32,8 +32,24 @@ $(document).ready(function () {
     // New ShortUrls Class
     var ShortURLs = Parse.Object.extend("ShortURLs");
     var shortUrls = new ShortURLs();
-    var query = Parse.Query(ShortURLs);
+    var query = new Parse.Query(ShortURLs);
     // Create a permalink with the user-inputted URLs
+    // Grab the HTTP GET query
+    var queryDict = {}
+    location.search.substr(1).split("&").forEach(function(item) {queryDict[item.split("=")[0]] = item.split("=")[1]})
+    // Detect permalinks!
+    if (typeof queryDict.id !== "undefined") {
+        // Get the URLs from the requested ShortURLs id (without a trailing slash) if possible
+        query.get(queryDict.id.replace(/\/$/, ''), {
+            success: function(object) {
+                update(object.get("imgUrl"), object.get("audioUrl"));
+            },
+              error: function(object, error) {
+                // The object was not retrieved successfully.
+                // error is a Parse.Error with an error code and message.
+             }
+        });
+    };
     var hasPermalinkDisplayed = false;
     $("#createPermalinkButton").click(function () {
         URLs = getUrls();
@@ -43,7 +59,7 @@ $(document).ready(function () {
                 "audioUrl": URLs.audioUrl
             }).then(function (object) {
                 if (hasPermalinkDisplayed == false) {
-                    $('#createPermalinkButton').after('<br />Your permalink is:<br /><input id="shortUrl" type="text" value="http://giftile.me/?id='+shortUrls.id+'"></input>');
+                    $('#createPermalinkButton').after('<br />Your permalink is:<br /><input id="shortUrl" type="text" value="http://giftile.me/?id='+shortUrls.id+'" readonly>');
                     $('#shortUrl').select();
                     hasPermalinkDisplayed = true;
                 };
