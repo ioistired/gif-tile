@@ -40,7 +40,7 @@ $(document).ready(function () {
     // Detect permalinks!
     if (typeof queryDict.id !== "undefined") {
         // Get the URLs from the requested ShortURLs id (without a trailing slash) if possible
-        query.get(queryDict.id.replace(/\/$/, ''), {
+        query.get(queryDict.id.replace(/\/+$/, ''), {
             success: function(object) {
                 update(object.get("imgUrl"), object.get("audioUrl"));
             },
