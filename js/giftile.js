@@ -42,7 +42,11 @@ $(document).ready(function () {
         // Get the URLs from the requested ShortURLs id (without a trailing slash) if possible
         query.get(queryDict.id.replace(/\/+$/, ''), {
             success: function(object) {
+				// Make it clear to the user what image / audio is being used.
+				$("#imgUrlEl").val(object.get("imgUrl"));
+				$("#audioUrlEl").val(object.get("audioUrl"));
                 update(object.get("imgUrl"), object.get("audioUrl"));
+				
             },
               error: function(object, error) {
                 // The object was not retrieved successfully.
