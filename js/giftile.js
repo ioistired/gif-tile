@@ -9,10 +9,7 @@ $(document).ready(function () {
             URLs.audioUrl = $("#audioUrlEl").val();
         return URLs;
     }
-	// Don't refresh on form submit
-	$('#updateForm').submit(function () {
-		return false;
-	});
+
     //  Update the page with the given URLs
     function update(imgUrl, audioUrl) {
         // Use fixed CSS variable
