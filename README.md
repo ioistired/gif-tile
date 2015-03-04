@@ -6,6 +6,9 @@ This can also loop an audio file; to remove it, just leave the second field blan
 giftile was originally hosted at [JS Bin](http://jsbin.com/tikodi), but I decided this needed its own domain name.
 You can view it as a GitHub Page at http://giftile.me.
 
+## Favicons
+Credits to http://realfavicongenerator.net.  The favicon is set in Calibri, in case you're wondering.
+
 # License
 Copyright © 2015 bmintz
 
