@@ -1,75 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <!--Favicons (thanks http://realfavicongenerator.net !) -->
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
-    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
-    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffc40d">
-    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <!--End favicons-->
-    <meta name="viewport" content="width=device-width">
-    <title>.gif-tile</title>
-    <script src="lib/jquery-2.1.3.min.js"></script>
-    <script src="lib/parse-1.6.7.min.js"></script>
-    <style>
-        #menu {
-          background: #fff;
-          max-width: 100%;
-          overflow-y: auto;
-      }
-      html, body {
-          height: 100%;
-          overflow: hidden;
-      }
-  </style>
-</head>
-<body>
-  <div class='meny' id="menu">
-    <form id="updateForm" style="display: inline;">
-      Enter a URL to an image:<br>
-      <input id="imgUrlEl" type="url"><br>
-      Enter a URL to an audio file your browser supports:<br>
-      <input id="audioUrlEl" type="url"><br>
-      <button id="updateButton">Update</button>
-  </form>
-  <button id="createPermalinkButton">Create permalink</button><br> 
-  <p>
-    <b>giftile</b> tiles a .gif (or other image) and loops an audio file.<br>
-    Useful for .gifs that "dance to anything".<br>
-    Clear a text box, then click <em>Update</em> to remove the<br>
-    image/audio corresponding to the textbox you just removed.
-</p>
-<p>
-    This menu will hide when you move your mouse.<br>(Or swipe to the left.)<br>
-    Bring your cursor left/swipe right to show the menu again.
-</p>
-<a href="https://github.com/bmintz/giftile" target="_blank">Fork me on GitHub</a>
-</div>
-<div class='contents'>
-    <audio id="bgAudio" preload="auto" autoplay loop></audio>
-</div>
-<!--Main functionality-->
-<script src="lib/meny-1.4.0.min.js"></script>
-<script src="js/meny.js"></script>
-    <!--<script src="lib/jquery-ui-1.11.4.min.js"></script>
-    <script src="lib/imagesloaded-3.1.8.pkgd.min.js"></script>
-    <script src="lib/video-4.12.5.min.js"></script>
-    <script src="lib/bigvideo-1.1.5.min.js"></script>-->
-    <script src="js/giftile.js"></script>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <!--Favicons (thanks http://realfavicongenerator.net !) -->
+        <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffc40d">
+        <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+        <!--End favicons-->
+        <meta name="viewport" content="width=device-width">
+        <title>-tile</title>
+        <script src="lib/jquery-2.1.3.min.js"></script>
+        <script src="lib/parse-1.6.7.min.js"></script>
+        <style>
+#menu {
+    background: #fff;
+    /*max-width: 100%;*/
+    overflow-y: auto;
+    display: inline-block;
+}
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+        </style>
+    </head>
+    <body>
+        <div id="menu">
+            <form id="updateForm" style="display: inline;">
+                Enter a URL to an image:<br>
+                <input id="imgUrlEl" type="url"><br>
+                Enter a URL to an audio file your browser supports:<br>
+                <input id="audioUrlEl" type="url"><br>
+                <button id="updateButton">Preview</button>
+            </form>
+            <button id="createPermalinkButton">Create permalink</button><br> 
+            <p>
+                <b>giftile</b> tiles a .gif (or other image) and loops an audio file.<br>
+                Useful for .gifs that "dance to anything".<br>
+            </p>
+            <p>
+                Clear a text box, then click <em>Preview</em> to remove the<br>
+                image/audio corresponding to the textbox you just removed.
+            </p>
+            <a href="https://github.com/bmintz/giftile" target="_blank">Fork me on GitHub</a>
+            <audio id="bgAudio" preload="auto" autoplay loop></audio>
+        </div>
+        <!--Main functionality-->
+        <script src="js/giftile.js"></script>
+    </body>
 </html>
