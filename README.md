@@ -1,4 +1,4 @@
-# .gif-tile
+# [.gif-tile](http://giftile.me)
 .gif-tile tiles a .gif (or any image file, for that matter) for "this .gif dances to anything" goodness.
 
 This can also loop an audio file; to remove it, just leave the second field blank and click "update".
