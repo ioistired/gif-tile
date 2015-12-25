@@ -66,7 +66,8 @@ $(document).ready(function () {
                 "audioUrl": URLs.audioUrl
             }).then(function (object) {
                 if (hasPermalinkDisplayed == false) {
-                    $('#createPermalinkButton').after('<br />Your permalink is:<br /><input id="shortUrl" type="text" value="http://giftile.me/?id='+shortUrls.id+'" readonly>');
+                    newLink = window.location.origin + "/combo?id="+ shortUrls.id;
+                    $('#createPermalinkButton').after('<br />Your permalink is:<br /><input id="shortUrl" type="text" value="'+newLink+'" readonly>');
                     $('#shortUrl').select();
                     hasPermalinkDisplayed = true;
                 };
