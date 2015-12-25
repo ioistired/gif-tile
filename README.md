@@ -1,5 +1,5 @@
-# giftile
-giftile tiles a .gif (or any image file, for that matter) for "this .gif dances to anything" goodness.
+# .gif-tile
+.gif-tile tiles a .gif (or any image file, for that matter) for "this .gif dances to anything" goodness.
 
 This can also loop an audio file; to remove it, just leave the second field blank and click "update".
 
@@ -18,7 +18,7 @@ Copyright © 2015 bmintz
 
       This program is free software: you can redistribute it and/or modify
       it under the terms of the GNU General Public License as published by
-      the Free Software Foundation, version 2 of the License.
+      the Free Software Foundation, version 2 of the License only.
 
       This program is distributed in the hope that it will be useful,
       but WITHOUT ANY WARRANTY; without even the implied warranty of
