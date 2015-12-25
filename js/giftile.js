@@ -6,7 +6,7 @@ $(document).ready(function () {
     function getUrls() {
         URLs = {};
         URLs.imgUrl = $("#imgUrlEl").val(),
-            URLs.audioUrl = $("#audioUrlEl").val();
+        URLs.audioUrl = $("#audioUrlEl").val();
         return URLs;
     }
 	// Don't refresh on form submit
@@ -49,12 +49,12 @@ $(document).ready(function () {
 				$("#imgUrlEl").val(object.get("imgUrl"));
 				$("#audioUrlEl").val(object.get("audioUrl"));
                 update(object.get("imgUrl"), object.get("audioUrl"));
-				
+                
             },
-              error: function(object, error) {
+            error: function(object, error) {
                 // The object was not retrieved successfully.
                 // error is a Parse.Error with an error code and message.
-             }
+            }
         });
     };
     var hasPermalinkDisplayed = false;
@@ -74,8 +74,8 @@ $(document).ready(function () {
                 alert("Permalink save unsuccesful.\nPlease try again.");
             });
         } else {
-              alert("Permalink not saved. Please enter an image URL or an audio URL or both.");
-        };
-    });
+          alert("Permalink not saved. Please enter an image URL or an audio URL or both.");
+      };
+  });
 });
 /* END PARSE CODE */

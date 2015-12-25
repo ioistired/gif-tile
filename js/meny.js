@@ -1,4 +1,5 @@
-var meny = Meny.create({
+var meny = Meny.create(
+    {
         // The element that will be animated in from off screen
         menuElement: document.querySelector( '.meny' ),
 
@@ -31,5 +32,5 @@ var meny = Meny.create({
 
         // Use touch swipe events to open/close
         touch: true
-      });
+    });
 meny.open();
