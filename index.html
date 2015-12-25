@@ -44,9 +44,11 @@ body {
         <div id="menu">
             <form id="updateForm" style="display: inline;">
                 <label for="imgUrlEl">Enter a URL to an image:</label><br>
-                <input id="imgUrlEl" type="url"><br>
+                <input id="imgUrlEl" type="url" novalidate><br>
+
                 <label for="audioUrlEl">Enter a URL to an audio file your browser supports:</label><br>
-                <input id="audioUrlEl" type="url"><br>
+                <input id="audioUrlEl" type="url" novalidate><br>
+
                 <button id="updateButton">Preview</button>
             </form>
             <button id="createPermalinkButton">Create permalink</button><br> 
